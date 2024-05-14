@@ -7,7 +7,7 @@ public class ProcessCircleController : MonoBehaviour
     private CircleModelView circleView;
 
     //Improvement: Data driven as Circle, Rectangle, etc
-    public Action<Circle> OnBuildShape;
+    public Action<float, int> OnBuildShape;
 
     [Inject]
     public void Construct(CircleModelView newCircleView)
@@ -22,7 +22,6 @@ public class ProcessCircleController : MonoBehaviour
 
     private void ProcessShape(ValueTuple<string, string> sides)
     {
-        Circle newCircle = new Circle(float.Parse(sides.Item1), int.Parse(sides.Item2));
-        OnBuildShape?.Invoke(newCircle);
+        OnBuildShape?.Invoke(float.Parse(sides.Item1), int.Parse(sides.Item2));
     }
 }

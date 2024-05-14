@@ -27,7 +27,7 @@ public class Circle : Shape
 
     private void AddListeners()
     {
-        processCircleController.OnBuildShape += SetValues;
+        // processCircleController.OnBuildShape += SetValues;
         reorderGridController.OnPositionUpdated += SetOrigin;
     }
 
