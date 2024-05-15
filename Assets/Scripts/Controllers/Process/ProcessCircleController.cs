@@ -1,27 +1,13 @@
-using System;
-using UnityEngine;
-using Zenject;
-
-public class ProcessCircleController : MonoBehaviour
+public class ProcessCircleController : ProcessShapeController<CircleModelView, CircleModel>
 {
-    private CircleModelView circleView;
-
-    //Improvement: Data driven as Circle, Rectangle, etc
-    public Action<float, int> OnBuildShape;
-
-    [Inject]
-    public void Construct(CircleModelView newCircleView)
+    protected override void AddListeners()
     {
-        circleView = newCircleView;
+        shapeView.OnShapeRender += ProcessShape;
     }
 
-    private void Start()
+    protected override void ProcessShape((string, string) sides)
     {
-        circleView.OnShapeRender += ProcessShape;
-    }
-
-    private void ProcessShape(ValueTuple<string, string> sides)
-    {
-        OnBuildShape?.Invoke(float.Parse(sides.Item1), int.Parse(sides.Item2));
+        shape.radius = float.Parse(sides.Item1);
+        shape.segments = int.Parse(sides.Item2);
     }
 }

@@ -1887,8 +1887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c35804c6e13ed1499aa984ff39eb49b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeModels: []
-  reorderGridView: {fileID: 0}
 --- !u!4 &824297801
 Transform:
   m_ObjectHideFlags: 0
@@ -2250,8 +2248,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2355,7 +2353,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {fileID: 132300165}
   material: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  radius: 0
 --- !u!1 &1033744913
 GameObject:
   m_ObjectHideFlags: 0
@@ -4262,7 +4259,7 @@ MonoBehaviour:
   OnPostResolve:
     m_PersistentCalls:
       m_Calls: []
-  _parentNewObjectsUnderSceneContext: 0
+  _parentNewObjectsUnderSceneContext: 1
   _contractNames: []
   _parentContractNames: []
 --- !u!4 &1600731908
@@ -4975,6 +4972,100 @@ MonoBehaviour:
   - {fileID: 1097361891}
   - {fileID: 365924771}
   - {fileID: 1534477039}
+--- !u!1 &1930402621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1930402626}
+  - component: {fileID: 1930402630}
+  - component: {fileID: 1930402629}
+  - component: {fileID: 1930402628}
+  - component: {fileID: 1930402627}
+  m_Layer: 0
+  m_Name: Models
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1930402626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930402621}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6192292, y: -3.7624185, z: 94.54701}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1930402627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930402621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15951810326c536479448971d89781ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  origin: {fileID: 1743751518}
+  leftSideLength: 0
+  bottomSideLength: 0
+--- !u!114 &1930402628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930402621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd128cf8ea852864f81c0339491c7bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  origin: {fileID: 931496685}
+  sideLength: 0
+--- !u!114 &1930402629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930402621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7192758167b424d4f834ffe1eeb89eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  origin: {fileID: 1228440291}
+  height: 0
+  width: 0
+--- !u!114 &1930402630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930402621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f485526f5d6f648bb1b343f9fb7e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  origin: {fileID: 132300165}
+  radius: 0
+  segments: 36
 --- !u!1 &1933607082
 GameObject:
   m_ObjectHideFlags: 0
@@ -5184,6 +5275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdc24cc82310734ea1b5a43c438944d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 0}
 --- !u!114 &2012459359
 MonoBehaviour:
   m_ObjectHideFlags: 0

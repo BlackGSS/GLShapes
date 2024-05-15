@@ -1,26 +1,13 @@
-using System;
-using UnityEngine;
-using Zenject;
-
-public class ProcessRectangleController : MonoBehaviour
+public class ProcessRectangleController : ProcessShapeController<RectangleModelView, RectangleModel>
 {
-    private RectangleModelView rectangleView;
-
-    public Action<float, float> OnBuildShape;
-
-    [Inject]
-    public void Construct (RectangleModelView newSquareView)
+    protected override void AddListeners()
     {
-        rectangleView = newSquareView;
+        shapeView.OnShapeRender += ProcessShape;
     }
 
-    private void Start()
+    protected override void ProcessShape((string, string) sides)
     {
-        rectangleView.OnShapeRender += ProcessShape;
-    }
-
-    private void ProcessShape(ValueTuple<string, string> sides)
-    {
-        OnBuildShape?.Invoke(float.Parse(sides.Item1), float.Parse(sides.Item2));
+        shape.height = float.Parse(sides.Item1);
+        shape.width = float.Parse(sides.Item2);
     }
 }

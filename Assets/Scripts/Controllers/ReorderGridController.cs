@@ -25,7 +25,7 @@ public class ReorderGridController : MonoBehaviour
         List<RectTransform> tempPositions = new List<RectTransform>(positions);
         foreach (var shapeModel in perimeters)
         {
-            OnPositionUpdated?.Invoke(shapeModel.Key, tempPositions[tempPositions.Count - 1]);
+            shapeModel.Key.SetOrigin(tempPositions[tempPositions.Count - 1]);
             tempPositions.RemoveAt(tempPositions.Count - 1);
         }
     }

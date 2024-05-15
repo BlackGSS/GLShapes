@@ -4,9 +4,13 @@ public class ModelsInstaller : Installer<ModelsInstaller>
 {
     public override void InstallBindings()
     {
-        Container.Bind<ShapeModel>().To<SquareModel>().FromComponentsInHierarchy().AsSingle().NonLazy();
-        Container.Bind<ShapeModel>().To<TriangleModel>().FromComponentsInHierarchy().AsSingle().NonLazy();
-        Container.Bind<ShapeModel>().To<RectangleModel>().FromComponentsInHierarchy().AsSingle().NonLazy();
-        Container.Bind<ShapeModel>().To<CircleModel>().FromComponentsInHierarchy().AsSingle().NonLazy();
+        Container.Bind<ShapeModel>().To<SquareModel>().FromComponentInHierarchy().AsCached().NonLazy();
+        Container.Bind<ShapeModel>().To<TriangleModel>().FromComponentInHierarchy().AsCached().NonLazy();
+        Container.Bind<ShapeModel>().To<RectangleModel>().FromComponentInHierarchy().AsCached().NonLazy();
+        Container.Bind<ShapeModel>().To<CircleModel>().FromComponentInHierarchy().AsCached().NonLazy();
+        Container.Bind<SquareModel>().FromComponentInHierarchy().AsCached().NonLazy();
+        Container.Bind<TriangleModel>().FromComponentInHierarchy().AsCached().NonLazy();
+        Container.Bind<RectangleModel>().FromComponentInHierarchy().AsCached().NonLazy();
+        Container.Bind<CircleModel>().FromComponentInHierarchy().AsCached().NonLazy();
     }
 }

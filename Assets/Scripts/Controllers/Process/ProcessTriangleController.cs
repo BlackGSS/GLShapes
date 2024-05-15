@@ -1,26 +1,13 @@
-using System;
-using UnityEngine;
-using Zenject;
-
-public class ProcessTriangleController : MonoBehaviour
+public class ProcessTriangleController : ProcessShapeController<TriangleModelView, TriangleModel>
 {
-    private TriangleModelView triangleView;
-
-    public Action<float, float> OnBuildShape;
-
-    [Inject]
-    public void Construct (TriangleModelView newTriangleView)
+    protected override void AddListeners()
     {
-        triangleView = newTriangleView;
+        shapeView.OnShapeRender += ProcessShape;
     }
 
-    private void Start()
+    protected override void ProcessShape((string, string) sides)
     {
-        triangleView.OnShapeRender += ProcessShape;
-    }
-
-    private void ProcessShape(ValueTuple<string, string> sides)
-    {
-        OnBuildShape?.Invoke(float.Parse(sides.Item1), float.Parse(sides.Item2));
+        shape.leftSideLength = float.Parse(sides.Item1);
+        shape.bottomSideLength = float.Parse(sides.Item2);
     }
 }

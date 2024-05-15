@@ -6,8 +6,8 @@ using Zenject;
 
 public class CalculatePerimeterController : MonoBehaviour
 {
-    [SerializeField] private ShapeModel[] shapeModels;
-    [SerializeField] private ReorderGridView reorderGridView;
+    private ShapeModel[] shapeModels;
+    private ReorderGridView reorderGridView;
     public Dictionary<ShapeModel, float> shapePerimeters = new Dictionary<ShapeModel, float>();
     public Action<Dictionary<ShapeModel, float>> OnPerimetersCalculated;
 
