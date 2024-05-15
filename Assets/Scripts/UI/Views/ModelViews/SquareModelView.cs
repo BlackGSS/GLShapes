@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class SquareModelView : ShapeModelView<string>
+public class SquareModelView : ShapeModelView<ValueTuple<string, string>>
 {
     [SerializeField] private InputCustom sideLength;
     private string firstSideString;
@@ -13,6 +14,6 @@ public class SquareModelView : ShapeModelView<string>
     
     protected override void PackData()
     {
-        data = firstSideString;
+        data = (firstSideString, null);
     }
 }

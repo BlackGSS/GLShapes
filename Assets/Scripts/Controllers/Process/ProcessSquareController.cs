@@ -1,26 +1,12 @@
-using System;
-using UnityEngine;
-using Zenject;
-
-public class ProcessSquareController : MonoBehaviour
+public class ProcessSquareController : ProcessShapeController<SquareModelView, SquareModel>
 {
-    private SquareModelView squareView;
-
-    public Action<float> OnBuildShape;
-
-    [Inject]
-    public void Construct (SquareModelView newSquareView)
+    protected override void AddListeners()
     {
-        squareView = newSquareView;
+        shapeView.OnShapeRender += ProcessShape;
     }
 
-    private void Start()
+    protected override void ProcessShape((string, string) sides)
     {
-        squareView.OnShapeRender += ProcessShape;
-    }
-
-    private void ProcessShape(string length)
-    {
-        OnBuildShape?.Invoke(float.Parse(length));
+        shape.sideLength = float.Parse(sides.Item1);
     }
 }

@@ -2,25 +2,20 @@ using UnityEngine;
 using System;
 using Zenject;
 
-public class ProcessShapeController<T, U> : MonoBehaviour where T : OnClickView
+public abstract class ProcessShapeController<T, U> : MonoBehaviour where T : OnClickView
 {
-    private T shapeView;
-
-    public Action<float, float> OnBuildShape;
+    protected T shapeView;
+    protected U shape;
 
     [Inject]
-    public void Construct (T newTriangleView)
+    public void Construct(T newTriangleView, U shapeModel)
     {
         shapeView = newTriangleView;
+        shape = shapeModel;
+        AddListeners();
     }
 
-    private void Start()
-    {
-        // shapeView.OnShapeRender += ProcessShape;
-    }
+    protected abstract void AddListeners();
 
-    private void ProcessShape(ValueTuple<string, string> sides)
-    {
-        OnBuildShape?.Invoke(float.Parse(sides.Item1), float.Parse(sides.Item2));
-    }
+    protected abstract void ProcessShape(ValueTuple<string, string> sides);
 }

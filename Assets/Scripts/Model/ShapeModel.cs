@@ -2,8 +2,7 @@ using UnityEngine;
 
 public abstract class ShapeModel : MonoBehaviour
 {
-    [SerializeField] protected RectTransform origin;
-    [SerializeField] protected Material material;
+    public RectTransform origin;
 
     //Upgrades: Perimeter as a variable for Set it only when the size change
     public float GetPerimeter()
@@ -12,13 +11,10 @@ public abstract class ShapeModel : MonoBehaviour
         return perimeter;
     }
 
-    protected abstract float SetPerimeter();
-
-    void OnPostRender()
+    public void SetOrigin(RectTransform newOrigin)
     {
-        DrawShape();
+        origin = newOrigin;
     }
 
-    protected abstract void DrawShape();
-
+    protected abstract float SetPerimeter();
 }
